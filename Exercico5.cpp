@@ -21,14 +21,14 @@ int main(int argc, char **argv) {
   MPI_Reduce(&tmp, &result, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
 
   if (rank == 0) {
-        printf("O valor reduzido é %d\n", result);
+        printf("O valor reduzido é %f\n", result);
 
     // Verificando o resultado
     float validacao = 0.0f;
     for (int i = 0; i < size; ++i)
       validacao += i * i * log(i + 1.0f);
 
-      printf("A validação fornece o valor: %d\n", validacao);
+      printf("A validação fornece o valor: %f\n", validacao);
   }
 
   MPI_Finalize();
